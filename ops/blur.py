@@ -1,22 +1,20 @@
-from skimage.filters import gaussian
-from skimage.exposure import rescale_intensity
 import re
+import cv2
 
 CODE = 'blur'
-REGEX = re.compile(r"^" + CODE + "_(?P<sigma>[.0-9]+)")
+REGEX = re.compile(r"^" + CODE + "_(?P<ksize>[.0-9]+)")
 
 class Blur:
-    def __init__(self, sigma):
-        self.code = CODE + str(sigma)
-        self.sigma = sigma
+    def __init__(self, ksize):
+        self.code = CODE + str(ksize)
+        self.kernel_size = int(ksize)
 
     def process(self, img):
-        is_colour = len(img.shape)==3
-        return rescale_intensity(gaussian(img, sigma=self.sigma, multichannel=is_colour))
+        return cv2.GaussianBlur(img, (self.kernel_size, self.kernel_size), 0)
 
     @staticmethod
     def match_code(code):
         match = REGEX.match(code)
         if match:
             d = match.groupdict()
-            return Blur(float(d['sigma']))
+            return Blur(float(d['ksize']))
