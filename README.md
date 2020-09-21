@@ -62,9 +62,10 @@ in the transform argument, the numeric value must be greater than 0.
 
 
 #### Rotate
-Rotates the image. The angle of rotation is specified by an integer value that is included in the transform argument
-
-    python main.py ./my_images rot_90 rot_180 rot_-90
+Rotates the image. The angle of rotation is specified by an integer value that is included in the transform argument.
+```shell
+python main.py ./my_images rot_90 rot_180 rot_-90
+```
 
 #### Translate
 Performs a translation on the image. The size of the translation in the x and y directions are specified by integer values that

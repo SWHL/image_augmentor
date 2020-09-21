@@ -54,12 +54,29 @@ if __name__ == "__main__":
     root_path = Path(__file__).resolve().parent
     im = cv2.imread('assets/Rabbit.jpg')
 
-    params_list = [0, 10, 20, 50, 100]
-    for i in params_list:
-        blur = gauss_noise(im, i)
+    rows, cols, _ = im.shape
 
-        save_path = root_path / 'test_images' / f'gauss_noise_{i}.jpg'
-        save_img(str(save_path), blur)
+    M = cv2.getRotationMatrix2D(((cols-1)/2.0, (rows-1)/2.0), -10, 0.8)
+    dst = cv2.warpAffine(im, M, (cols, rows))
+    """
+        '''
+    第一个参数：旋转中心点
+    第二个参数：旋转角度
+    第三个参数：缩放比例
+    '''
+    """
+
+    cv2.imshow('im', im)
+    cv2.imshow('dst', dst)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+    # params_list = [0, 10, 20, 50, 100]
+    # for i in params_list:
+    #     blur = gauss_noise(im, i)
+
+    #     save_path = root_path / 'test_images' / f'gauss_noise_{i}.jpg'
+    #     save_img(str(save_path), blur)
 
     # blur_0 = Blur(0).process(im)
     # save_img(r'G:\ProgramFiles\image_augmentor-master\test_images\blur_0.jpg', blur_0)
