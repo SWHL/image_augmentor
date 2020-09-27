@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
     rows, cols, _ = im.shape
 
-    M = cv2.getRotationMatrix2D(((cols-1)/2.0, (rows-1)/2.0), -10, 0.8)
+    M = np.float32([[1, 0, 0], [0, 1, 50]])
     dst = cv2.warpAffine(im, M, (cols, rows))
     """
         '''

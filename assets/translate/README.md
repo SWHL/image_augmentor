@@ -1,7 +1,3 @@
-## TODO:
-- [] Zoom/Stretch
-- [] function comments
-
 ## Image Augmentor
 
 This is a simple data augmentation tool for image files, intended for use with machine learning data sets.
@@ -25,11 +21,11 @@ using the codes listed in the table below:
 |---|---|---|------|
 |`fliph`|Horizontal Flip||`fliph`|
 |`flipv`|Vertical Flip||`flipv`|
-|`noise`|Adds random noise to the image||`noise_20`,`noise_50`|
+|`noise`|Adds random noise to the image||`noise_0.01`,`noise_0.5`|
 |`rot`|Rotates the image by the specified amount||`rot_90`,`rot_-45`|
 |`trans`|Shifts the pixels of the image by the specified amounts in the x and y directions||`trans_20_10`,`trans_-10_0`|
 |`zoom`|Zooms into the specified region of the image, performing stretching/shrinking as necessary||`zoom_0_0_20_20`,`zoom_-10_-20_10_10`|
-|`blur`|Blurs the image by the specified amount|`1,3,7,9,11,...`|`blur_1`|
+|`blur`|Blurs the image by the specified amount|`1,3,7,9,11,...`|`blur_1.5`|
 
 
 Each transform argument results in one additional output image being generated for each input image.
@@ -50,31 +46,19 @@ Produce 1 output image for each input image, by first rotating the image by 90&d
 
 #### Horizontal Flip
 Mirrors the image around a vertical line running through its center
-```shell
-python main.py ./my_images fliph
-```
-<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" style="zoom:33%;" />
-<img src="./assets/flip/Rabbit_fliph.jpg" alt="Rabbit_fliph.jpg" style="zoom:33%;" />
 
+    python main.py ./my_images fliph
 
 #### Vertical Flip
 Mirrors the image around a horizontal line running through its center
-```shell
-python main.py ./my_images flipv
-```
-<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" style="zoom:33%;" />
-<img src="./assets/flip/Rabbit_flipv.jpg" alt="Rabbit_flipv.jpg" style="zoom:33%;" />
 
+    python main.py ./my_images flipv
 
 #### Noise
 Adds random noise to the image. The amount of noise to be added is specified by a floating-point numeric value that is included
 in the transform argument, the numeric value must be greater than 0.
-```shell
-python main.py ./my_images noise_20 noise_50 noise_100
-```
-<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" style="zoom:33%;" />
-<img src="./assets/noise/Rabbit_noise20.0.jpg" alt="Rabbit_noise20.0.jpg" style="zoom:33%;" />
-<img src="./assets/noise/Rabbit_noise50.0.jpg" alt="Rabbit_noise50.0.jpg" style="zoom:33%;" />
+
+    python main.py ./my_images noise_0.01 noise_0.02 noise_0.05
 
 
 #### Rotate
@@ -82,10 +66,6 @@ Rotates the image. The angle of rotation is specified by an integer value that i
 ```shell
 python main.py ./my_images rot_90 rot_180 rot_-90
 ```
-<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" style="zoom:33%;" />
-<img src="./assets/rotate/Rabbit_rot-45.jpg" alt="Rabbit_rot-45.jpg" style="zoom:33%;" />
-<img src="./assets/rotate/Rabbit_rot90.jpg" alt="Rabbit_rot90.jpg" style="zoom:33%;" />
-
 
 #### Translate
 Performs a translation on the image. The size of the translation in the x and y directions are specified by integer values that
@@ -93,10 +73,7 @@ are included in the transform argument
 ```shell
 python main.py ./my_images trans_20_20 trans_0_100
 ```
-<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" style="zoom:33%;" />
-<img src="./assets/translate/Rabbit_trans20_20.jpg" alt="Rabbit_trans20_20.jpg" style="zoom:33%;" />
-<img src="./assets/translate/Rabbit_trans0_100.jpg" alt="Rabbit_trans0_100.jpg" style="zoom:33%;" />
-
+<img src=>
 
 #### Zoom/Stretch
 Zooms in (or out) to a particular area of the image. The top-left and bottom-right coordinates of the target region are

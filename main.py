@@ -37,7 +37,7 @@ def build_augmented_file_name(original_name, ops):
     root, ext = os.path.splitext(original_name)
     result = root
     for op in ops:
-        result += '__' + op.code
+        result += '_' + op.code
     return result + ext
 
 
@@ -48,12 +48,10 @@ def work(d, f, op_lists):
             out_file_name = build_augmented_file_name(f, op_list)
             if isfile(os.path.join(d, out_file_name)):
                 continue  # 文件已经存在
-            # img = imread(in_path)
             img = cv2.imread(in_path)
             for op in op_list:
                 img = op.process(img)
             
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  #TODO: 这里保存后为蓝色了
             cv2.imwrite(os.path.join(d, out_file_name), img)
 
         counter.processed()
@@ -71,7 +69,7 @@ class Paramerter():
 
 
 if __name__ == '__main__':
-    param = Paramerter(['', 'images/', 'rot_90', 'rot_-45'])
+    param = Paramerter(['', 'images/', 'flipv', 'fliph'])
     if len(param.argv) < 3:
         print('Usage: {} <image directory> <operation> (<operation> ...)'.format(
             param.argv[0]))

@@ -14,14 +14,7 @@ class Noise:
         self.var = var
 
     def process(self, img):
-        return self._gauss_noise(img, var=self.var)
-
-    @staticmethod
-    def match_code(code):
-        match = REGEX.match(code)
-        if match:
-            d = match.groupdict()
-            return Noise(float(d['var']))
+        return self._gauss_noise(img, self.var)
 
     @staticmethod
     def _salt_pepper_noise(image, prob):
@@ -61,3 +54,10 @@ class Noise:
             noisy_img[:, :, 1] = temp_img[:, :, 1] + noise
             noisy_img[:, :, 2] = temp_img[:, :, 2] + noise
         return noisy_img
+
+    @staticmethod
+    def match_code(code):
+        match = REGEX.match(code)
+        if match:
+            d = match.groupdict()
+            return Noise(float(d['var']))
