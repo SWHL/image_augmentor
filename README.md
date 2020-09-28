@@ -80,7 +80,7 @@ Rotates the image. The angle of rotation is specified by an integer value that i
 ```shell
 python main.py ./my_images rot_90 rot_180 rot_-90
 ```
-<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" width="150" height="150" /><img src="./assets/rotate/Rabbit_rot-45.jpg" alt="Rabbit_rot-45.jpg" width="150" height="150" /><img src="./assets/rotate/Rabbit_rot90.jpg" alt="Rabbit_rot90.jpg" width="150" height="150" />
+<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" width="150" height="150" />&nbsp;&nbsp;<img src="./assets/rotate/Rabbit_rot-45.jpg" alt="Rabbit_rot-45.jpg" width="150" height="150" />&nbsp;&nbsp;<img src="./assets/rotate/Rabbit_rot90.jpg" alt="Rabbit_rot90.jpg" width="150" height="150" />
 
 
 #### Translate
