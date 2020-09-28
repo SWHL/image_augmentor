@@ -55,7 +55,7 @@ Mirrors the image around a vertical line running through its center
 ```shell
 python main.py ./my_images fliph
 ```
-<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" width="150" height="150" />&nbsp;<img src="./assets/flip/Rabbit_fliph.jpg" alt="Rabbit_fliph.jpg" width="150" height="150" />
+<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" width="150" height="150" />&nbsp;&nbsp;<img src="./assets/flip/Rabbit_fliph.jpg" alt="Rabbit_fliph.jpg" width="150" height="150" />
 
 
 #### Vertical Flip
@@ -63,7 +63,7 @@ Mirrors the image around a horizontal line running through its center
 ```shell
 python main.py ./my_images flipv
 ```
-<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" width="150" height="150" />&nbsp;<img src="./assets/flip/Rabbit_flipv.jpg" alt="Rabbit_flipv.jpg" width="150" height="150" />
+<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" width="150" height="150" />&nbsp;&nbsp;<img src="./assets/flip/Rabbit_flipv.jpg" alt="Rabbit_flipv.jpg" width="150" height="150" />
 
 
 #### Noise
@@ -72,7 +72,7 @@ in the transform argument, the numeric value must be greater than 0.
 ```shell
 python main.py ./my_images noise_20 noise_50 noise_100
 ```
-<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" width="150" height="150" /&nbsp;><img src="./assets/noise/Rabbit_noise20.0.jpg" alt="Rabbit_noise20.0.jpg" width="150" height="150" />&nbsp;<img src="./assets/noise/Rabbit_noise50.0.jpg" alt="Rabbit_noise50.0.jpg" width="150" height="150" />
+<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" width="150" height="150" />&nbsp;&nbsp;<img src="./assets/noise/Rabbit_noise20.0.jpg" alt="Rabbit_noise20.0.jpg" width="150" height="150" />&nbsp;&nbsp;<img src="./assets/noise/Rabbit_noise50.0.jpg" alt="Rabbit_noise50.0.jpg" width="150" height="150" />
 
 
 #### Rotate
@@ -89,7 +89,7 @@ are included in the transform argument
 ```shell
 python main.py ./my_images trans_20_20 trans_0_100
 ```
-<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" width="150" height="150" />&nbsp;<img src="./assets/translate/Rabbit_trans20_20.jpg" alt="Rabbit_trans20_20.jpg" width="150" height="150" />&nbsp;<img src="./assets/translate/Rabbit_trans0_100.jpg" alt="Rabbit_trans0_100.jpg" width="150" height="150" />
+<img src="./assets/Rabbit.jpg" alt="Rabbit.jpg" width="150" height="150" />&nbsp;&nbsp;<img src="./assets/translate/Rabbit_trans20_20.jpg" alt="Rabbit_trans20_20.jpg" width="150" height="150" />&nbsp;&nbsp;<img src="./assets/translate/Rabbit_trans0_100.jpg" alt="Rabbit_trans0_100.jpg" width="150" height="150" />
 
 
 #### Zoom/Stretch
@@ -104,4 +104,4 @@ Blurs the image by the `cv2.GaussianBlur()` of the opencv. The amount of blurrin
 ```shell
 python main.py ./my_images blur_1 blur_3 blur_9 blur_19
 ```
-<img src="./assets/blur/blur_1.jpg" alt="blur_1.jpg" width="150" height="150" />&nbsp;<img src="./assets/blur/blur_3.jpg" alt="blur_3.jpg" width="150" height="150" />&nbsp;<img src="./assets/blur/blur_9.jpg" alt="blur_9.jpg" width="150" height="150" />&nbsp;<img src="./assets/blur/blur_19.jpg" alt="blur_19.jpg" width="150" height="150" />
+<img src="./assets/blur/blur_1.jpg" alt="blur_1.jpg" width="150" height="150" />&nbsp;&nbsp;<img src="./assets/blur/blur_3.jpg" alt="blur_3.jpg" width="150" height="150" />&nbsp;&nbsp;<img src="./assets/blur/blur_9.jpg" alt="blur_9.jpg" width="150" height="150" />&nbsp;&nbsp;<img src="./assets/blur/blur_19.jpg" alt="blur_19.jpg" width="150" height="150" />
