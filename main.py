@@ -12,7 +12,6 @@ from ops.zoom import Zoom
 from ops.blur import Blur
 from ops.noise import Noise
 from ops.translate import Translate
-from skimage.io import imread, imsave
 import cv2
 
 EXTENSIONS = ['png', 'jpg', 'jpeg', 'bmp']
@@ -63,24 +62,18 @@ def process(dir, file, op_lists):
     thread_pool.apply_async(work, (dir, file, op_lists))
 
 
-class Paramerter():
-    def __init__(self, argv) -> None:
-        self.argv = argv
-
-
 if __name__ == '__main__':
-    param = Paramerter(['', 'images/', 'flipv', 'fliph'])
-    if len(param.argv) < 3:
+    if len(sys.argv) < 3:
         print('Usage: {} <image directory> <operation> (<operation> ...)'.format(
-            param.argv[0]))
+            sys.argv[0]))
         sys.exit(1)
 
-    image_dir = param.argv[1]
+    image_dir = sys.argv[1]
     if not os.path.isdir(image_dir):
         print('Invalid image directory: {}'.format(image_dir))
         sys.exit(2)
 
-    op_codes = param.argv[2:]
+    op_codes = sys.argv[2:]
     op_lists = []
     for op_code_list in op_codes:
         op_list = []

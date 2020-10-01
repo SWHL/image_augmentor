@@ -1,4 +1,4 @@
-from skimage import transform
+import cv2
 import numpy as np
 import re
 
@@ -36,7 +36,7 @@ class Zoom:
             padding.append((0,0)) # colour images have an extra dimension
 
         padded_img = np.pad(cropped_img, padding, 'constant')
-        return transform.resize(padded_img, (h,w))
+        return cv2.resize(padded_img, (h,w))
 
     @staticmethod
     def match_code(code):

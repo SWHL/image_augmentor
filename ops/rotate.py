@@ -12,7 +12,7 @@ class Rotate:
 
     def process(self, img):
         rows, cols, _ = img.shape
-        M = cv2.getRotationMatrix2D(((cols-1)/2.0, (rows-1)/2.0), self.angle, 1)
+        M = cv2.getRotationMatrix2D(((cols-1)/2.0, (rows-1)/2.0), -self.angle, 1)
         dst = cv2.warpAffine(img, M, (cols, rows))
         return dst
 
