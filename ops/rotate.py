@@ -11,10 +11,26 @@ class Rotate:
         self.code = PREFIX + str(angle)
 
     def process(self, img):
-        rows, cols, _ = img.shape
-        M = cv2.getRotationMatrix2D(((cols-1)/2.0, (rows-1)/2.0), -self.angle, 1)
-        dst = cv2.warpAffine(img, M, (cols, rows))
-        return dst
+        height, width = img.shape[:2]
+        image_center = (width/2, height/2)
+
+        rotation_mat = cv2.getRotationMatrix2D(image_center, -self.angle, 1.)
+
+        # rotation calculates the cos and sin, taking absolutes of those.
+        abs_cos = abs(rotation_mat[0,0]) 
+        abs_sin = abs(rotation_mat[0,1])
+
+        # find the new width and height bounds
+        bound_w = int(height * abs_sin + width * abs_cos)
+        bound_h = int(height * abs_cos + width * abs_sin)
+
+        # subtract old image center (bringing image back to origo) and adding the new image center coordinates
+        rotation_mat[0, 2] += bound_w/2 - image_center[0]
+        rotation_mat[1, 2] += bound_h/2 - image_center[1]
+
+        # rotate image with the new bounds and translated rotation matrix
+        rotated_img = cv2.warpAffine(img, rotation_mat, (bound_w, bound_h))
+        return rotated_img
 
     @staticmethod
     def match_code(code):
