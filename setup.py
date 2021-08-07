@@ -3,11 +3,11 @@
 # @File: setup.py
 # @Author: SWHL
 # @Contact: liekkaskono@163.com
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name="img_aug_offline",
-    version="0.1",
+    version='0.1',
     author="SWHL",
     author_email="liekkaskono@163.com",
     description="image augment offline",
