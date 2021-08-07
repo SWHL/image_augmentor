@@ -10,7 +10,7 @@ setup(
     version="0.1",
     author="SWHL",
     author_email="liekkaskono@163.com",
-    description="图像离线增强",
+    description="image augment offline",
     license='Apache-2.0',
     url="https://github.com/SWHL/image_augmentor",
     install_requires=['numpy', 'opencv-python'],

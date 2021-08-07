@@ -1,7 +1,10 @@
+## Update
+### 2021-08-07 update
+- Add whl package for easy use
+
 ## Note
 - **This code has a faster speed with the python-opencv.**
 - Modify from https://github.com/codebox/image_augmentor for image augmentation by python-opencv.
-
 
 ## Image Augmentor
 
@@ -12,8 +15,17 @@ be used when developing a neural network, and should significantly improve the r
 particularly when the number of training examples is relatively small.
 
 Run the utility from the command-line as follows:
+```python
+from img_aug_offline import ImgAugOffline
+
+img_auger = ImgAugOffline()
+img_auger(r'images', ['fliph', 'flipv'])
+```
+or
 ```shell
-python main.py <image dir> <transform1> <transform2> ...
+pip install img_aug_offline-0.1-py3-none-any.whl
+
+img_aug_offline images fliph flipv
 ```
 
 The `<image dir>` argument should be the path to a directory containing the image files to be augmented.
