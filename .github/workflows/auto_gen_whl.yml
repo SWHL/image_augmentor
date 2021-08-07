@@ -35,4 +35,19 @@ jobs:
           chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
     
       - name: Run setup.py
-        run: echo "hello world"
+        run: |
+          python setup.py bdist_wheel
+          rm -r build 
+          rm -r *.egg-info
+          mv dist/*.whl whl/
+          rm -r dist
+      
+      - name: Submit code
+        run: |
+         git config --global user.name "SWHL"
+         git config --global user.email "liekkaskono@163.com"
+         
+         git add .
+         git commit -m 'update'
+         git push origin main
+      
